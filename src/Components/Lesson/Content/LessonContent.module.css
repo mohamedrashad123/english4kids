@@ -1,0 +1,36 @@
+.container {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.info {
+    margin-top: 5px;
+    overflow-y: auto;
+    height: 200px;
+    width: 100%;
+    padding: 15px 0;
+}
+
+/* width */
+.info::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+.info::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 127px;
+}
+
+/* Handle */
+.info::-webkit-scrollbar-thumb {
+    background: #6E41E2; 
+    border-radius: 127px;
+    border: 4px solid #f1f1f1;
+}
+
+/* Handle on hover */
+.info::-webkit-scrollbar-thumb:hover {
+    background: #6E41E2; 
+}

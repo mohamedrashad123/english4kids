@@ -1,0 +1,23 @@
+.FilterOptions {
+    /* display: flex;
+    justify-content: space-between; */
+    margin-top: 36px;
+}
+
+
+.FilterOptions form {
+    width: 60%;
+}
+
+@media (max-width: 570px) {
+    .gridContainer {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .FilterOptions form {
+        width: 100% !important;
+    } 
+}
+

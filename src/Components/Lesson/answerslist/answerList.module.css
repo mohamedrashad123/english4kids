@@ -1,0 +1,10 @@
+.answersListContainer {
+    margin-top: 46px;
+}
+
+.answersList {
+    display: flex;
+    flex-direction: column;
+    row-gap: 11px;
+    padding: 15px 0;
+}

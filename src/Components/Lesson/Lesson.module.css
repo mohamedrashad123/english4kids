@@ -1,0 +1,22 @@
+.lesson {
+    padding: 3rem  0;
+}
+
+.lessonTitle {
+    width: 58%;
+    margin-bottom: 25px;
+}
+
+.video {
+    width: 100%;
+    display: inline-block;
+    outline: none;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+@media (max-width: 570px) {
+    .lessonTitle {
+        width: 100%;
+    }
+}

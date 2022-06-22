@@ -1,0 +1,24 @@
+.Answer {
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 15px;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.checkBoxIcon {
+    color: #6E41E2;
+    margin-right: 5px;
+}
+
+.selectedBoxIcon {
+    color: #fff;
+}
+
+.selectedAnswer {
+    background-color: #6E41E2;
+    color: #fff;
+}

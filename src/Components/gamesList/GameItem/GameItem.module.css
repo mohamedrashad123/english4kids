@@ -1,0 +1,12 @@
+.cardBottom {
+    padding: 12px;
+}
+
+.gameImage {
+    width: 192px !important;
+    z-index: 9;
+    right: -18px;
+    bottom: -11px;
+    position: fixed;
+    height: 100%;
+}
