@@ -155,7 +155,7 @@ function Lesson(props) {
 									</Box>
 									{nextQuestion?.image ? (
 										<img
-											style={{ display: 'block', margin: '27px auto 0px' }}
+											style={{ display: 'block', margin: '27px auto 0px', objectFit: 'cover', width: '100%', heigth: '100%' }}
 											src={`${cdnLink}/question/${nextQuestion?.image || ''}`}
 											alt="question image"
 										/>
