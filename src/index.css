@@ -46,6 +46,12 @@ code {
   width: 400px !important;
 }
 
+@media (max-width:450px) {
+  .swiperItem {
+    width: 320px !important;
+  }
+}
+
 .Content {
   display: flex;
   padding: 2rem 6rem 2rem;

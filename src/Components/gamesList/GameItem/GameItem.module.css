@@ -10,3 +10,11 @@
     position: fixed;
     height: 100%;
 }
+
+@media (max-width: 450px) {
+    .gameImage {
+        bottom: -14px;
+        right: -1px;
+        width: 154px!important;
+    }
+}
