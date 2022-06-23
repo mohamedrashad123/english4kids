@@ -41,7 +41,7 @@ function LessonContent({ lessonData }) {
 						</>
 					) : (
 						<>
-							{wordsInfo}
+							{wordsInfo ? wordsInfo : ''}
 							{wordsImages?.length
 								? wordsImages.map((image, i) => (
 										<img key={i} style={{ display: 'block', margin: '17px 0', width: '80%' }} src={`${cdnLink}/word/${image}`} alt="lesson words" />
