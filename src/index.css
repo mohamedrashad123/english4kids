@@ -58,3 +58,47 @@ code {
   width: 100%;
 }
 
+.checkboxItem span.MuiFormControlLabel-label {
+  width: 69px;
+  height: 56px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.08);
+  border-radius: 4px;
+}
+
+@media (max-width: 360px) {
+  .checkboxItem span.MuiFormControlLabel-label {
+      width: 59px;
+  }
+}
+
+.checkboxItem span.css-hyxlzm.css-hyxlzm {
+  display: none !important;
+}
+
+.imageItem {
+  cursor: pointer;
+}
+
+.colorItem {
+  width: 160px;
+  height: 162px !important;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid #222;
+}
+
+.imageItem.correct img, .colorItem.correct img  {
+  border: 2px solid var(--primary-color);
+  border-radius: 20px;
+}
+
+
+.imageItem.wrong img, .colorItem.wrong img {
+  border: 2px solid var(--secondry-color);
+  border-radius: 20px;
+}
+

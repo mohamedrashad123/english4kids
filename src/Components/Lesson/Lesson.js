@@ -16,8 +16,7 @@ import quizController from '../../controllers/quizController';
 import failIconSvg from './failedsvg.svg';
 import { useParams } from 'react-router-dom';
 
-// const lessonId = 38;
-function Lesson(props) {
+function Lesson() {
 	const { lessonId } = useParams();
 	const [lessonDetails, setLessonDetails] = useState(null);
 	const [content, setContent] = useState(null);
@@ -27,7 +26,6 @@ function Lesson(props) {
 
 	const getLessonData = async () => {
 		const lessonData = await lessonController.getDetails(lessonId);
-
 		if (lessonData) {
 			setLessonDetails(lessonData);
 			setContent({
@@ -37,9 +35,7 @@ function Lesson(props) {
 				wordsInfo: lessonData?.words_info || '',
 				image: lessonData?.image || '',
 			});
-		} else {
-			setLessonDetails(null);
-		}
+		} else setLessonDetails(null);
 	};
 
 	const createSpeech = (text) => {
@@ -48,8 +44,6 @@ function Lesson(props) {
 		speech.text = text;
 
 		const voices = window.speechSynthesis.getVoices();
-
-		// Initially set the First Voice in the Array.
 		speech.voice = voices[1];
 		window.speechSynthesis.speak(speech);
 	};
@@ -57,7 +51,6 @@ function Lesson(props) {
 	const createQuiz = async () => {
 		const questions = lessonDetails?.questions.map((question) => {
 			const correctAnswerId = question.answers.find((ans) => ans.isCorrect)?.ID;
-
 			return { questionId: question.ID, answerId: correctAnswerId };
 		});
 
@@ -74,13 +67,8 @@ function Lesson(props) {
 		else if (lessonDetails?.questions?.length - 1 === nextQuestionIndex) createQuiz();
 	};
 
-	useEffect(() => {
-		getLessonData();
-	}, []);
-
-	useEffect(() => {
-		changeQuestion();
-	}, [lessonDetails, nextQuestionIndex]);
+	useEffect(() => getLessonData(), []);
+	useEffect(() => changeQuestion(), [lessonDetails, nextQuestionIndex]);
 
 	const changeSelectedAnswer = (index) => {
 		const answersClone = [...lessonDetails?.questions[nextQuestionIndex]?.answers];
@@ -98,8 +86,7 @@ function Lesson(props) {
 	};
 
 	const finishQuiz = () => {
-		if (quizReport.success) {
-		} else {
+		if (!quizReport.success) {
 			getLessonData();
 			setNextQuestionIndex(0);
 			setNextQuestion(null);
@@ -116,7 +103,7 @@ function Lesson(props) {
 						className={classes.video}
 						controls
 						height="467"
-						data={`https://www.youtube.com/embed/8irSFvoyLHQ` + `?rel=0&modestbranding=1&fs=0&showinfo=0&color=white&controls=0`}
+						data={`${lessonDetails.video}` + `?rel=0&modestbranding=1&fs=0&showinfo=0&color=white&controls=0`}
 					></object>
 					<LessonContent lessonData={content || {}} />
 				</Grid>

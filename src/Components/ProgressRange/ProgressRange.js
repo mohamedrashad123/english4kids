@@ -33,11 +33,13 @@ export default function CustomizedProgressBars({
 	barbackground,
 	padding,
 	width,
+	className,
+	containerClassName,
 }) {
 	const normalise = (value) => ((value - min) * 100) / (max - min);
 
 	return (
-		<Box sx={{ flexGrow: 1, padding: '10px' }}>
+		<Box sx={{ flexGrow: 1, padding: '10px' }} className={containerClassName}>
 			{withLabel ? (
 				<Box sx={{ minWidth: 35 }}>
 					<Typography align="left" paddingLeft={`${normalise(value) - 7}%`} variant="body2" color="text.secondary">
@@ -48,13 +50,14 @@ export default function CustomizedProgressBars({
 			<Box sx={{ display: 'flex', alignItems: 'center' }}>
 				<Box sx={{ width: '100%', mr: 1 }}>
 					<BorderLinearProgress
+						className={className}
 						variant="determinate"
 						value={normalise(value)}
 						baseheight={baseheight}
 						barheight={barheight}
 						barbackground={barbackground}
 						padding={padding}
-						width={`${normalise(value) - (width === 100 ? 1 : 4)}% !important`}
+						width={`${normalise(value) - (width === 100 || width === 50 ? 2 : 4)}% !important`}
 					/>
 				</Box>
 			</Box>

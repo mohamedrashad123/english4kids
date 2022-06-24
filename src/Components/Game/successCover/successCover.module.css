@@ -1,0 +1,10 @@
+.container {
+    padding: 4rem 0;
+    height: 83.5vh;
+}
+
+@media (max-width: 772px) {
+    .container {
+        padding: 0rem 0;
+    }
+}

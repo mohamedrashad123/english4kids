@@ -1,0 +1,18 @@
+.container {
+    /* transform: translate(50%, 30vh); */
+    height: 83.8vh;
+    text-align: center;
+}
+
+.rangeInput {
+    width: 50%;
+    margin-bottom: 4rem;
+}
+
+@media(max-width: 540px) {
+    .rangeInput {
+        width: 90%;
+        margin-bottom: 4rem;
+    }
+}
+

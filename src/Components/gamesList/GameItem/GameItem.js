@@ -7,8 +7,10 @@ import Typography from '@mui/material/Typography';
 import { Button } from '@material-ui/core';
 import gameImage from './gameImage.svg';
 import classes from './GameItem.module.css';
+import { useNavigate } from 'react-router-dom';
 
 function GameItem({ game }) {
+	const navigate = useNavigate();
 	const style = {
 		boxShadow: '0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.08)',
 		borderRadius: '8px',
@@ -22,14 +24,24 @@ function GameItem({ game }) {
 			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 				<CardContent sx={{ flex: '1 0 auto' }}>
 					<Typography component="div" variant="h5">
-						Pick the letter
+						{game.title}
 					</Typography>
 					<Typography variant="text" component="div" style={{ width: '75%' }}>
 						In this game, you have to choose the correct letter to complete the word
 					</Typography>
 				</CardContent>
 				<Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }} style={{ marginTop: '18px' }}>
-					<Button variant="contained" className="secondryButton">
+					<Button
+						variant="contained"
+						className="secondryButton"
+						onClick={() =>
+							navigate(`/games/${game.id}`, {
+								state: {
+									game,
+								},
+							})
+						}
+					>
 						Play the game
 					</Button>
 				</Box>
