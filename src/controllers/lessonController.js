@@ -6,6 +6,7 @@ export default {
 		const {
 			data: { lesson_details, statusCode },
 		} = await getData(`/lessons/${lessonId}`);
+		console.log(lesson_details);
 
 		if (statusCode === 200) return lesson_details;
 		return null;

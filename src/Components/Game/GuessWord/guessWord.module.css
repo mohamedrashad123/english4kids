@@ -31,6 +31,19 @@
     width: 47rem !important;
 }
 
+@media (max-width: 540px) {
+    .selectionImageList {
+        width: 340px !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .quesImageList {
+        width: 250px !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 10px !important;
+    }
+}
+
 .selectionItem div {
     font-size: 5rem !important;
     font-weight: 800 !important;

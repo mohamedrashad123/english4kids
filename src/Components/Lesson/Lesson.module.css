@@ -15,8 +15,18 @@
     border-radius: 5px;
 }
 
+.questionImage {
+    display: block;
+    margin: 27px auto 0px;
+    transform: translateX(-17%);
+}
+
 @media (max-width: 570px) {
     .lessonTitle {
         width: 100%;
     }
+
+    .questionImage {
+        transform: translateX(0px);
+}
 }

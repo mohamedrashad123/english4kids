@@ -98,7 +98,7 @@ function GuessWord({ game, success: Success, backToHome, storeGameState }) {
 							style={{ gridTemplateColumns: `repeat(${game.steps[step].word.length}, 1fr)` }}
 							cols={3}
 							rowHeight={164}
-							className={clsx('my-5', classes.imageList)}
+							className={clsx('my-5', classes.imageList, classes.quesImageList)}
 						>
 							{game.steps[step].word.split('').map((char, i) => {
 								return (

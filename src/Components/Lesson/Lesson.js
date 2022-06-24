@@ -67,8 +67,13 @@ function Lesson() {
 		else if (lessonDetails?.questions?.length - 1 === nextQuestionIndex) createQuiz();
 	};
 
-	useEffect(() => getLessonData(), []);
-	useEffect(() => changeQuestion(), [lessonDetails, nextQuestionIndex]);
+	useEffect(() => {
+		getLessonData();
+	}, []);
+
+	useEffect(() => {
+		changeQuestion();
+	}, [lessonDetails, nextQuestionIndex]);
 
 	const changeSelectedAnswer = (index) => {
 		const answersClone = [...lessonDetails?.questions[nextQuestionIndex]?.answers];
@@ -103,7 +108,7 @@ function Lesson() {
 						className={classes.video}
 						controls
 						height="467"
-						data={`${lessonDetails.video}` + `?rel=0&modestbranding=1&fs=0&showinfo=0&color=white&controls=0`}
+						data={`${lessonDetails?.video}` + `?rel=0&modestbranding=1&fs=0&showinfo=0&color=white&controls=0`}
 					></object>
 					<LessonContent lessonData={content || {}} />
 				</Grid>
@@ -142,7 +147,9 @@ function Lesson() {
 									</Box>
 									{nextQuestion?.image ? (
 										<img
-											style={{ display: 'block', margin: '27px auto 0px', objectFit: 'cover', width: '100%', heigth: '100%' }}
+											className={classes.questionImage}
+											height={400}
+											width={400}
 											src={`${cdnLink}/question/${nextQuestion?.image || ''}`}
 											alt="question image"
 										/>
