@@ -3,7 +3,7 @@ import Home from './Components/Home/Home';
 import { Routes, Route } from 'react-router-dom';
 import Lesson from './Components/Lesson/Lesson';
 import Navbar from './Components/navbar/Navbar';
-// import Form from './Components/Form/Form';
+import Form from './Components/Form/Form';
 import Game from './Components/Game/Game';
 
 function App() {
@@ -12,18 +12,23 @@ function App() {
 			<Navbar />
 			{/* <Form /> */}
 			<div className="container-fluid">
-				<Routes>
-					<Route path="/">
-						<Route path="lessons">
-							<Route path=":lessonId" element={<Lesson />}></Route>
-						</Route>
+				{sessionStorage.getItem('token') ? (
+					<Routes>
+						<Route path="/">
+							<Route path="auth" element={<Form />}></Route>
+							<Route path="lessons">
+								<Route path=":lessonId" element={<Lesson />}></Route>
+							</Route>
 
-						<Route path="games">
-							<Route path=":gameId" element={<Game />}></Route>
+							<Route path="games">
+								<Route path=":gameId" element={<Game />}></Route>
+							</Route>
+							<Route index element={<Home />} />
 						</Route>
-						<Route index element={<Home />} />
-					</Route>
-				</Routes>
+					</Routes>
+				) : (
+					<Form />
+				)}
 			</div>
 		</div>
 	);

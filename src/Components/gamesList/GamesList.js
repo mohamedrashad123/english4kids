@@ -135,56 +135,56 @@ const games = [
 				image: `${baseLink}/964643077144.png`,
 				chars: ['E', 'T', 'X', 'D', 'I'],
 			},
-			{
-				word: 'ten',
-				image: `${baseLink}/1615771782399.png`,
-				chars: ['E', 'T', 'X', 'N', 'I'],
-			},
-			{
-				word: 'bread',
-				image: `${baseLink}/1191403719468.png`,
-				chars: ['B', 'E', 'R', 'D', 'A'],
-			},
-			{
-				word: 'cat',
-				image: `${baseLink}/726288457493.png`,
-				chars: ['C', 'T', 'X', 'N', 'A'],
-			},
-			{
-				word: 'rain',
-				image: `${baseLink}/806520902079.png`,
-				chars: ['I', 'N', 'R', 'Y', 'A'],
-			},
-			{
-				word: 'wind',
-				image: `${baseLink}/1294011484442.png`,
-				chars: ['W', 'N', 'I', 'D', 'Y'],
-			},
-			{
-				word: 'watch',
-				image: `${baseLink}/1318098519085.png`,
-				chars: ['W', 'C', 'A', 'H', 'T'],
-			},
-			{
-				word: 'map',
-				image: `${baseLink}/72898860590.png`,
-				chars: ['M', 'T', 'P', 'N', 'A'],
-			},
-			{
-				word: 'green',
-				image: `${baseLink}/1643217393012.png`,
-				chars: ['E', 'G', 'E', 'R', 'N'],
-			},
-			{
-				word: 'fall',
-				image: `${baseLink}/974867004323.png`,
-				chars: ['F', 'L', 'E', 'L', 'A'],
-			},
-			{
-				word: 'giza',
-				image: `${baseLink}/60848109532.png`,
-				chars: ['G', 'Z', 'I', 'L', 'A'],
-			},
+			// {
+			// 	word: 'ten',
+			// 	image: `${baseLink}/1615771782399.png`,
+			// 	chars: ['E', 'T', 'X', 'N', 'I'],
+			// },
+			// {
+			// 	word: 'bread',
+			// 	image: `${baseLink}/1191403719468.png`,
+			// 	chars: ['B', 'E', 'R', 'D', 'A'],
+			// },
+			// {
+			// 	word: 'cat',
+			// 	image: `${baseLink}/726288457493.png`,
+			// 	chars: ['C', 'T', 'X', 'N', 'A'],
+			// },
+			// {
+			// 	word: 'rain',
+			// 	image: `${baseLink}/806520902079.png`,
+			// 	chars: ['I', 'N', 'R', 'Y', 'A'],
+			// },
+			// {
+			// 	word: 'wind',
+			// 	image: `${baseLink}/1294011484442.png`,
+			// 	chars: ['W', 'N', 'I', 'D', 'Y'],
+			// },
+			// {
+			// 	word: 'watch',
+			// 	image: `${baseLink}/1318098519085.png`,
+			// 	chars: ['W', 'C', 'A', 'H', 'T'],
+			// },
+			// {
+			// 	word: 'map',
+			// 	image: `${baseLink}/72898860590.png`,
+			// 	chars: ['M', 'T', 'P', 'N', 'A'],
+			// },
+			// {
+			// 	word: 'green',
+			// 	image: `${baseLink}/1643217393012.png`,
+			// 	chars: ['E', 'G', 'E', 'R', 'N'],
+			// },
+			// {
+			// 	word: 'fall',
+			// 	image: `${baseLink}/974867004323.png`,
+			// 	chars: ['F', 'L', 'E', 'L', 'A'],
+			// },
+			// {
+			// 	word: 'giza',
+			// 	image: `${baseLink}/60848109532.png`,
+			// 	chars: ['G', 'Z', 'I', 'L', 'A'],
+			// },
 		],
 	},
 	{

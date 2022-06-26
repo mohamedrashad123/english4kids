@@ -40,7 +40,7 @@ function GuessWord({ game, success: Success, backToHome, storeGameState }) {
 		const gameHistory = JSON.parse(localStorage.getItem('game'));
 		localStorage.setItem('charslist', JSON.stringify(charsClone));
 		if (gameHistory && gameHistory.id === game.id) {
-			if (gameHistory.step) setStep(gameHistory.step);
+			if (gameHistory.step && gameHistory.step < game.steps[step].word.length) setStep(gameHistory.step);
 		}
 	}, []);
 
@@ -53,8 +53,10 @@ function GuessWord({ game, success: Success, backToHome, storeGameState }) {
 		if (game.steps[step].word.length === charsList.length) {
 			if (charsList.join('').toLocaleLowerCase() === game.steps[step].word.toLocaleLowerCase()) {
 				setStep((oldStep) => {
-					const charsClone = [...game.steps[oldStep + 1].chars];
-					localStorage.setItem('charslist', JSON.stringify(charsClone));
+					if (step + 1 < game.steps.length) {
+						const charsClone = [...game.steps[oldStep + 1].chars];
+						localStorage.setItem('charslist', JSON.stringify(charsClone));
+					}
 					return oldStep + 1;
 				});
 

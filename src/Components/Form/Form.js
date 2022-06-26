@@ -11,6 +11,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import clsx from 'clsx';
+import authController from '../../controllers/authController';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -41,9 +42,58 @@ const CustomLabel = () => (
 
 function Form() {
 	const [value, setValue] = React.useState(0);
+	const [fullname, setFullname] = React.useState('');
+	const [phone, setPhone] = React.useState('');
+	const [password, setPassword] = React.useState('');
+	const [confirmPassword, setConfirmPassword] = React.useState('');
+	const [gradeId, setGradeId] = React.useState(1);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
+	};
+
+	const resetFields = () => {
+		setFullname('');
+		setPhone('');
+		setPassword('');
+		setConfirmPassword('');
+		setGradeId('1');
+	};
+
+	const handleLogin = async () => {
+		const authData = {
+			phone,
+			password,
+		};
+
+		const result = await authController.login(authData);
+
+		if (result) {
+			resetFields();
+			window.location.href = '/';
+			return 1;
+		}
+		return 0;
+	};
+
+	const handleRegister = async () => {
+		const authData = {
+			fullname,
+			phone,
+			password,
+			gradeId,
+		};
+
+		if (password === confirmPassword) {
+			const result = await authController.signup(authData);
+
+			if (result) {
+				resetFields();
+				window.location.href = '/';
+				return 1;
+			}
+			return 0;
+		}
 	};
 
 	return (
@@ -85,6 +135,8 @@ function Form() {
 									inputProps={{
 										'aria-label': 'weight',
 									}}
+									onChange={(e) => setFullname(e.target.value)}
+									value={fullname}
 								/>
 							</FormControl>
 							<FormControl className={classes.textField} sx={{ m: 1, width: '25ch' }} variant="outlined">
@@ -95,6 +147,8 @@ function Form() {
 									inputProps={{
 										'aria-label': 'weight',
 									}}
+									onChange={(e) => setPhone(e.target.value)}
+									value={phone}
 								/>
 							</FormControl>
 							<FormControl className={classes.textField} sx={{ m: 1, width: '25ch' }} variant="outlined">
@@ -105,21 +159,53 @@ function Form() {
 									inputProps={{
 										'aria-label': 'weight',
 									}}
+									onChange={(e) => setPassword(e.target.value)}
+									value={password}
+								/>
+							</FormControl>
+							<FormControl className={classes.textField} sx={{ m: 1, width: '25ch' }} variant="outlined">
+								<OutlinedInput
+									id="outlined-adornment-weight"
+									placeholder="confirm password"
+									aria-describedby="outlined-weight-helper-text"
+									inputProps={{
+										'aria-label': 'weight',
+									}}
+									onChange={(e) => setConfirmPassword(e.target.value)}
+									value={confirmPassword}
 								/>
 							</FormControl>
 							<FormControl>
 								<FormLabel id="demo-row-radio-buttons-group-label">Select your grade</FormLabel>
 								<RadioGroup className={classes.radioGroup} row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group">
-									<FormControlLabel className="checkboxItem" value="1" control={<Radio />} label="1" />
-									<FormControlLabel className="checkboxItem" value="2" control={<Radio />} label="2" />
-									<FormControlLabel className="checkboxItem" value="3" control={<Radio />} label="3" />
+									<FormControlLabel
+										onChange={(e) => setGradeId(1)}
+										value={gradeId}
+										className={clsx('checkboxItem', gradeId === 1 ? 'activeCheckBox' : '')}
+										control={<Radio />}
+										label="1"
+									/>
+									<FormControlLabel
+										onChange={(e) => setGradeId(2)}
+										value={gradeId}
+										className={clsx('checkboxItem', gradeId === 2 ? 'activeCheckBox' : '')}
+										control={<Radio />}
+										label="2"
+									/>
+									<FormControlLabel
+										onChange={(e) => setGradeId(3)}
+										value={gradeId}
+										className={clsx('checkboxItem', gradeId === 3 ? 'activeCheckBox' : '')}
+										control={<Radio />}
+										label="3"
+									/>
 								</RadioGroup>
 							</FormControl>
 							<FormControl className={classes.formPolicyContainer}>
 								<FormControlLabel control={<Checkbox />} label={<CustomLabel />} />
 							</FormControl>
 							<FormControl className={classes.formButton}>
-								<Button variant="outlined" className={clsx('primaryButton', classes.formButton)}>
+								<Button onClick={handleRegister} variant="outlined" className={clsx('primaryButton', classes.formButton)}>
 									Registration
 								</Button>
 							</FormControl>
@@ -133,6 +219,8 @@ function Form() {
 									inputProps={{
 										'aria-label': 'weight',
 									}}
+									onChange={(e) => setPhone(e.target.value)}
+									value={phone}
 								/>
 							</FormControl>
 							<FormControl className={classes.textField} sx={{ m: 1, width: '25ch' }} variant="outlined">
@@ -143,16 +231,8 @@ function Form() {
 									inputProps={{
 										'aria-label': 'weight',
 									}}
-								/>
-							</FormControl>
-							<FormControl className={classes.textField} sx={{ m: 1, width: '25ch' }} variant="outlined">
-								<OutlinedInput
-									id="outlined-adornment-weight"
-									placeholder="confirm password"
-									aria-describedby="outlined-weight-helper-text"
-									inputProps={{
-										'aria-label': 'weight',
-									}}
+									onChange={(e) => setPassword(e.target.value)}
+									value={password}
 								/>
 							</FormControl>
 
@@ -166,7 +246,7 @@ function Form() {
 							</Stack>
 
 							<FormControl className={clsx(classes.formButton, classes.loginBtn)}>
-								<Button variant="outlined" className={clsx('primaryButton', classes.formButton)}>
+								<Button onClick={handleLogin} variant="outlined" className={clsx('primaryButton', classes.formButton)}>
 									Sign in
 								</Button>
 							</FormControl>

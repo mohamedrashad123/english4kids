@@ -79,6 +79,11 @@ code {
   display: none !important;
 }
 
+.activeCheckBox span.MuiFormControlLabel-label {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+}
+
 .imageItem {
   cursor: pointer;
 }
